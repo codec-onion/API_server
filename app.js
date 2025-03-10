@@ -18,9 +18,8 @@ const testModel = mongoose.model("essai", testSchema)
 const app = express()
 
 app
-  .get("/", (req, res) => {
+  .use("/", (req, res) => {
     console.log("ping")
-    res.status(200).send("OK")
   })
   .get("/coucou", async (req, res) => {
     console.log("Requête")
