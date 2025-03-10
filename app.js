@@ -15,7 +15,10 @@ const express = require("express")
 
 const app = express()
 
-app.use("/coucou", (req, res) => res.send("Coucou"))
+app.use("/coucou", (req, res) => {
+  console.log("Requête faite le " + new Date())
+  res.send("Coucou")
+})
 // .use(express.json())
 // .use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*")
