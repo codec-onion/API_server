@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/codec-onion/API_server#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
   }
 }
