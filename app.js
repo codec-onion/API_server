@@ -1,23 +1,26 @@
 const express = require("express")
-// const dotenv = require("dotenv").config()
-// const mongoose = require("mongoose")
+const dotenv = require("dotenv").config()
+const mongoose = require("mongoose")
 // const userRoutes = require("./routes/user")
 // const sauceRoutes = require("./routes/sauce")
 // const path = require("path")
 
-// mongoose
-//   .connect(`${process.env.MONGODB_URL}`, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => console.log("Connexion à MongoDB réussie !"))
-//   .catch((error) => console.log("Connexion à MongoDB échouée !"))
+mongoose
+  .connect(`${process.env.MONGODB_URL}`)
+  .then(() => console.log("Connexion à MongoDB réussie !"))
+  .catch((error) => console.log("Connexion à MongoDB échouée !"))
 
+const testSchema = new mongoose.Schema({
+  name: String,
+  lastName: String,
+})
+const testModel = mongoose.model("essai", testSchema)
 const app = express()
 
-app.use("/coucou", (req, res) => {
-  console.log("Requête faite le " + new Date())
-  res.send("Coucou")
+app.use("/coucou", async (req, res) => {
+  console.log("Requête")
+  const test = await testModel.find()
+  res.send(test)
 })
 // .use(express.json())
 // .use((req, res, next) => {
