@@ -17,11 +17,13 @@ const testSchema = new mongoose.Schema({
 const testModel = mongoose.model("essai", testSchema)
 const app = express()
 
-app.use("/coucou", async (req, res) => {
-  console.log("Requête")
-  const test = await testModel.find()
-  res.send(test)
-})
+app
+  .use("/", (req, res) => res.status(200).send("OK"))
+  .use("/coucou", async (req, res) => {
+    console.log("Requête")
+    const test = await testModel.find()
+    res.send(test)
+  })
 // .use(express.json())
 // .use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*")
