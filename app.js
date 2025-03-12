@@ -19,7 +19,7 @@ const app = express()
 
 app
   .use("/ping", (req, res) => {
-    res.send("ok")
+    res.status(200).end()
   })
   .get("/coucou", async (req, res) => {
     console.log("Requête")
