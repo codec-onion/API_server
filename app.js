@@ -19,6 +19,7 @@ const app = express()
 
 app
   .use("/ping", (req, res) => {
+    console.log(`Received ${req.method} request from IP: ${req.ip} and URL: ${req.url}`)
     res.status(200).end()
   })
   .get("/coucou", async (req, res) => {
