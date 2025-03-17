@@ -20,7 +20,7 @@ const app = express()
 app
   .use("/ping", (req, res) => {
     console.log(`Received ${req.method}`)
-    // console.log(`Headers: ${JSON.stringify(req.headers, null, 2)}`)
+    // console.log(`Headers: ${JSON.stringify(req.headers, null, 2)}`)nnn
     res.status(200).end()
   })
   .get("/coucou", async (req, res) => {
